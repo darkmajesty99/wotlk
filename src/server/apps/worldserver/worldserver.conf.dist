@@ -120,9 +120,9 @@ BindIP = "0.0.0.0"
 #                     "127.0.0.1;3306;acore;acore;acore_world"      - (WorldDatabaseInfo)
 #                     "127.0.0.1;3306;acore;acore;acore_characters" - (CharacterDatabaseInfo)
 
-LoginDatabaseInfo     = "127.0.0.1;3306;acore;acore;acore_auth"
-WorldDatabaseInfo     = "127.0.0.1;3306;acore;acore;acore_world"
-CharacterDatabaseInfo = "127.0.0.1;3306;acore;acore;acore_characters"
+LoginDatabaseInfo     = "127.0.0.1;3306;acore;tralala12;acore_auth"
+WorldDatabaseInfo     = "127.0.0.1;3306;acore;tralala12;acore_world"
+CharacterDatabaseInfo = "127.0.0.1;3306;acore;tralala12;acore_characters"
 
 #
 #    LoginDatabase.WorkerThreads
@@ -182,7 +182,7 @@ Database.Reconnect.Attempts = 20
 #        Example:     "@prefix@\home\youruser\azerothcore\data"
 #        Default:     "."
 
-DataDir = "."
+DataDir = "/home/imncadsii/wotlk/run/etc"
 
 #
 #    LogsDir
@@ -192,7 +192,7 @@ DataDir = "."
 #        Example:     "/home/youruser/azerothcore/logs"
 #        Default:     "" - (Log files will be stored in the current path)
 
-LogsDir = ""
+LogsDir = "/home/imncadsii/wotlk/run/bin"
 
 #
 #    TempDir
@@ -249,7 +249,7 @@ MySQLExecutable = ""
 #        Example:     "./world.pid" - (Enabled)
 #        Default:     ""            - (Disabled)
 
-PidFile = ""
+PidFile = "/home/imncadsii/wotlk/run/bin/worldserver.pid"
 
 #
 ###################################################################################################
@@ -450,7 +450,7 @@ Ra.MinLevel = 3
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-SOAP.Enabled = 0
+SOAP.Enabled = 1
 
 #
 #    SOAP.IP
@@ -520,7 +520,7 @@ UseProcessors = 0
 #        Default:     1 - (High)
 #                     0 - (Normal)
 
-ProcessPriority = 1
+ProcessPriority = 0
 
 #
 #    Compression
@@ -583,7 +583,7 @@ MinRecordUpdateTimeDiff = 100
 #    IPLocationFile
 #        Description: The path to your IP2Location database CSV file.
 #        Example:     "C:/acore/IP2LOCATION-LITE-DB1.CSV"
-#                     "/home/acore/IP2LOCATION-LITE-DB1.CSV"
+#                     "/home/imncadsii/IP2LOCATION-LITE-DB1.CSV"
 #        Default:     "" - (Disabled)
 
 IPLocationFile = ""
@@ -676,6 +676,7 @@ ChatLog.Enable = 0
 
 Appender.Console=1,4,0,"1 9 3 6 5 8"
 Appender.Server=2,5,0,Server.log,w
+Appender.Playerbots=2,5,0,Playerbots.log,w
 # Appender.GM=2,5,15,gm_%s.log
 Appender.Errors=2,2,0,Errors.log,w
 # Appender.DB=3,5,0
@@ -709,6 +710,7 @@ Logger.sql=4,Console Server
 Logger.time.update=4,Console Server
 Logger.module=4,Console Server
 Logger.spells.scripts=2,Console Errors
+Logger.playerbots=5,Console Playerbots
 # Logger.achievement=4,Console Server
 # Logger.addon=4,Console Server
 # Logger.auctionHouse=4,Console Server
@@ -1067,7 +1069,7 @@ EnableLoginAfterDC = 1
 #        Description: Minimum time (milliseconds) between world update ticks (for mostly idle servers).
 #        Default:     1 - (0.001 second)
 
-MinWorldUpdateTime = 1
+MinWorldUpdateTime = 10
 
 #
 #    UpdateUptimeInterval
@@ -1144,7 +1146,7 @@ MaxWhoListReturns = 49
 #                     1 - (Enabled, prevent players AFK from being logged out in Sanctuary zones)
 #                     2 - (Enabled, prevent players AFK from being logged out in all zones)
 
-PreventAFKLogout = 0
+PreventAFKLogout = 2
 
 #
 ###################################################################################################
@@ -1513,7 +1515,7 @@ Command.LookupMaxResults = 0
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled)
 
-Die.Command.Mode = 1
+Die.Command.Mode = 0
 
 #
 ###################################################################################################
@@ -1828,7 +1830,7 @@ PlayerSaveInterval = 900000
 #        Default:     0  - (Disabled, Do not save character stats)
 #                     1+ - (Enabled, Level beyond which character stats are saved)
 
-PlayerSave.Stats.MinLevel = 0
+PlayerSave.Stats.MinLevel = 1
 
 #
 #    PlayerSave.Stats.SaveOnlyOnLogout
@@ -1836,7 +1838,7 @@ PlayerSave.Stats.MinLevel = 0
 #        Default:     1 - (Enabled, Only save on logout)
 #                     0 - (Disabled, Save on every player save)
 
-PlayerSave.Stats.SaveOnlyOnLogout = 1
+PlayerSave.Stats.SaveOnlyOnLogout = 0
 
 #
 #    PlayerSave.AdditionalSaves
@@ -1916,7 +1918,7 @@ CharDelete.MinLevel = 0
 #        Default:     30 - (Enabled)
 #                     0  - (Disabled, Don't delete any characters)
 
-CharDelete.KeepDays = 30
+CharDelete.KeepDays = 7
 
 #
 ###################################################################################################
@@ -2097,7 +2099,7 @@ StartHeroicPlayerLevel = 55
 #                     1 - (Show intro only for first character of selected race)
 #                     2 - (Disable intro for all classes)
 
-SkipCinematics = 0
+SkipCinematics = 2
 
 #
 #    StartPlayerMoney
@@ -2105,7 +2107,7 @@ SkipCinematics = 0
 #        Default:     0
 #                     100 - (1 Silver)
 
-StartPlayerMoney = 0
+StartPlayerMoney = 1000000
 
 #
 #    StartHeroicPlayerMoney
@@ -2113,7 +2115,7 @@ StartPlayerMoney = 0
 #        Default:     2000
 #                     2000 - (20 Silver)
 
-StartHeroicPlayerMoney = 2000
+StartHeroicPlayerMoney = 2000000
 
 #
 #    PlayerStart.String
@@ -2187,7 +2189,7 @@ Rate.MoveSpeed.NPC = 1
 #        Description: Damage after fall rate.
 #        Default:     1
 
-Rate.Damage.Fall = 1
+Rate.Damage.Fall = 0.5
 
 #
 #    Rate.Talent
@@ -2343,7 +2345,7 @@ Achievement.RealmFirstRaceLimitOnePerCharacter = 1
 #        Range:       0-11
 #        Default:     2
 
-MaxPrimaryTradeSkill = 2
+MaxPrimaryTradeSkill = 11
 
 #
 #    SkillChance.Prospecting
@@ -2452,7 +2454,7 @@ Stats.Limits.Crit  = 95.0
 #        Description: Reputation gain rate.
 #        Default:     1
 
-Rate.Reputation.Gain = 1
+Rate.Reputation.Gain = 4
 
 #
 #    Rate.Reputation.LowLevel.Kill
@@ -2513,10 +2515,10 @@ MaxGroupXPDistance = 74
 #                     1 - (Rate.XP.Pet)
 
 Rate.XP.Kill      = 1
-Rate.XP.Quest     = 1
-Rate.XP.Quest.DF  = 1
-Rate.XP.Explore   = 1
-Rate.XP.Pet       = 1
+Rate.XP.Quest     = 7
+Rate.XP.Quest.DF  = 4
+Rate.XP.Explore   = 4
+Rate.XP.Pet       = 4
 
 #
 #    Rate.XP.BattlegroundKill...
@@ -2740,7 +2742,7 @@ DurabilityLossChance.Block = 0.05
 #                     MaxPlayerLevel+1 - (Disabled)
 #                     -10              - (Enabled, Level 1+ characters have 10 minute duration)
 
-Death.SicknessLevel = 11
+Death.SicknessLevel = 81
 
 #
 #    Death.CorpseReclaimDelay.PvP
@@ -2866,12 +2868,12 @@ DBC.EnforceItemAttributes = 1
 Rate.Drop.Item.Poor             = 1
 Rate.Drop.Item.Normal           = 1
 Rate.Drop.Item.Uncommon         = 1
-Rate.Drop.Item.Rare             = 1
-Rate.Drop.Item.Epic             = 1
-Rate.Drop.Item.Legendary        = 1
-Rate.Drop.Item.Artifact         = 1
+Rate.Drop.Item.Rare             = 2
+Rate.Drop.Item.Epic             = 3
+Rate.Drop.Item.Legendary        = 4
+Rate.Drop.Item.Artifact         = 5
 Rate.Drop.Item.Referenced       = 1
-Rate.Drop.Money                 = 1
+Rate.Drop.Money                 = 20
 
 #
 #    Rate.Drop.Item.ReferencedAmount
@@ -2993,7 +2995,7 @@ Rate.RewardBonusMoney = 1
 #                     Increases CONFIG_SIGHT_MONSTER to 50 yards. Used to be 20 yards.
 #        Default:     50.000000
 
-MonsterSight = 50.000000
+MonsterSight = 25.000000
 
 #
 #    Rate.Creature.Aggro
@@ -3002,7 +3004,7 @@ MonsterSight = 50.000000
 #                     1.5 - (Enabled, 150%)
 #                     0   - (Disabled, 0%)
 
-Rate.Creature.Aggro = 1
+Rate.Creature.Aggro = 0.5
 
 #
 #    CreatureFamilyFleeAssistanceRadius
@@ -3010,7 +3012,7 @@ Rate.Creature.Aggro = 1
 #        Default:     30 - (Enabled)
 #                     0  - (Disabled)
 
-CreatureFamilyFleeAssistanceRadius = 30
+CreatureFamilyFleeAssistanceRadius = 10
 
 #
 #    CreatureLeashRadius
@@ -3018,7 +3020,7 @@ CreatureFamilyFleeAssistanceRadius = 30
 #        Default:     30 - (Enabled)
 #                     0  - (Disabled)
 
-CreatureLeashRadius = 30
+CreatureLeashRadius = 10
 
 #
 #    CreatureFamilyAssistanceRadius
@@ -3334,7 +3336,7 @@ Group.RandomRollMaximum = 1000000
 #        Default:     0 - (Disabled, Only GM accounts can be summoned by GM)
 #                     1 - (Enabled, GM and Player accounts can be summoned by GM)
 
-Instance.GMSummonPlayer = 0
+Instance.GMSummonPlayer = 1
 
 #
 #    Instance.IgnoreLevel
@@ -3350,7 +3352,7 @@ Instance.IgnoreLevel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Instance.IgnoreRaid = 0
+Instance.IgnoreRaid = 1
 
 #
 #    Instance.ResetTimeHour
@@ -3613,7 +3615,7 @@ Guild.BankEventLogRecordsCount = 25
 #        Range:       0-9
 #        Default:     9
 
-MinPetitionSigns = 9
+MinPetitionSigns = 0
 
 #
 #    Guild.CharterCost
@@ -4640,7 +4642,7 @@ Calendar.DeleteOldEventsHour = 6
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Event.Announce = 0
+Event.Announce = 1
 
 #
 ###################################################################################################
@@ -4903,7 +4905,25 @@ Respawn.ForceCompatibilityMode = 0
 
 #
 ###################################################################################################
+# PVP Elite Announcers#
+###################
+#
+#     KilledByCreature.Announcer
+#        Announce Player Killed by Creature to server.
+#        Default:     1 (Default)
+#                      0 (Disabled)
 
+KilledByCreature.Announcer = 1
+
+#
+#     PvPKill.Announcer
+#        Announce Player Killed by PVP to server.
+#        Default:     1 (Default)
+#                      0 (Disabled)
+
+PVPKill.Announcer = 1
+
+#
 ###################################################################################################
 #                                                                                                 #
 # GAME SETTINGS END                                                                               #
@@ -4962,3 +4982,332 @@ Cluster.IsCrossrealm=0
 # CLUSTER SETTINGS END                                                                            #
 #                                                                                                 #
 ###################################################################################################
+
+# -----------------------------------------------------------------------------
+# Core AoE Loot Settings
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Enable
+#        Description: Master toggle for the AoE Loot system
+#        Default:     1 (Enabled)
+#
+AoELoot.Enable = 1
+
+#
+#    AoELoot.Range
+#        Description: Maximum range (yards) to collect loot from nearby corpses
+#        Range:       5.0 - 100.0
+#        Default:     30.0
+#
+AoELoot.Range = 30.0
+
+#
+#    AoELoot.MaxCorpses
+#        Description: Maximum corpses to include in a single AoE loot operation
+#        Range:       1 - 50
+#        Default:     10
+#
+AoELoot.MaxCorpses = 10
+
+#
+#    AoELoot.AutoLoot
+#        Description: Controls automatic looting behavior
+#                     0 = Disabled
+#                     1 = Always auto-loot
+#                     2 = Respect player's AutoLoot client setting
+#        Default:     2
+#
+AoELoot.AutoLoot = 2
+
+#
+#    AoELoot.ShowMessage
+#        Description: Show AoE loot info messages to players
+#        Default:     1 (Enabled)
+#
+AoELoot.ShowMessage = 1
+
+#
+#    AoELoot.AllowInGroup
+#        Description: Allow AoE looting while in a group or raid
+#        Default:     1 (Enabled)
+#
+AoELoot.AllowInGroup = 1
+
+#
+#    AoELoot.QuestItems
+#        Description: Include quest items in AoE loot collection
+#        Default:     1 (Enabled)
+#
+AoELoot.QuestItems = 1
+
+#
+#    AoELoot.IgnoreTapped
+#        Description: Skip corpses tapped by other players/groups
+#        Default:     1 (Enabled)
+#
+AoELoot.IgnoreTapped = 1
+
+#
+#    AoELoot.PlayersOnly
+#        Description: Only allow players to use AoE loot (not NPCs/pets)
+#        Default:     1 (Enabled)
+#
+AoELoot.PlayersOnly = 1
+
+#
+#    AoELoot.AutoCreditGold
+#        Description: Automatically credit gold when looting solo
+#        Default:     1 (Enabled)
+#
+AoELoot.AutoCreditGold = 1
+
+#
+#    AoELoot.MaxMergeSlots
+#        Description: Maximum item slots to merge into loot window
+#        Range:       1 - 16
+#        Default:     15
+#
+AoELoot.MaxMergeSlots = 15
+
+#
+#    AoELoot.AutoStoreWindowSeconds
+#        Description: Time window (seconds) to consider autostore "recent"
+#        Range:       1 - 60
+#        Default:     5
+#
+AoELoot.AutoStoreWindowSeconds = 5
+
+#
+#    AoELoot.DebugPerCorpse
+#        Description: Enable debug logging for each corpse looted
+#        Default:     0 (Disabled)
+#
+AoELoot.DebugPerCorpse = 0
+
+# -----------------------------------------------------------------------------
+# AoE Loot Companion-Bound Looter Pet
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.LooterPet.Enable
+#        Description: Enable companion-bound looter pulse behavior
+#                     (pet/guardian/charm can trigger periodic AoE looting)
+#        Default:     1 (Enabled)
+#
+AoELoot.LooterPet.Enable = 1
+
+#
+#    AoELoot.LooterPet.AllowInCombat
+#        Description: Legacy flag (autonomous looter mode is forced out-of-combat)
+#        Default:     0
+#
+AoELoot.LooterPet.AllowInCombat = 0
+
+#
+#    AoELoot.LooterPet.PulseMs
+#        Description: Interval in milliseconds between looter pulse checks
+#        Range:       500 - 10000
+#        Default:     1500
+#
+AoELoot.LooterPet.PulseMs = 1500
+
+#
+#    AoELoot.LooterPet.FallbackToPlayerAnchor
+#        Description: If companion-anchor pulse finds no eligible corpse, retry from player anchor
+#        Default:     1 (Enabled)
+#
+AoELoot.LooterPet.FallbackToPlayerAnchor = 1
+
+#
+#    AoELoot.LooterPet.CompanionLeash.Enable
+#        Description: Require companion to stay within leash distance of player for autonomous pulses
+#        Default:     1 (Enabled)
+#
+AoELoot.LooterPet.CompanionLeash.Enable = 1
+
+#
+#    AoELoot.LooterPet.CompanionLeash.MaxDistance
+#        Description: Maximum companion distance (yards) from player to allow autonomous pulses
+#        Range:       5.0 - 150.0
+#        Default:     45.0
+#
+AoELoot.LooterPet.CompanionLeash.MaxDistance = 45.0
+
+#
+#    AoELoot.LooterPet.Pathfinding.Enable
+#        Description: Use server pathfinding checks before selecting a corpse anchor target
+#                     for looter-pet pulses. Recommended when MoveMaps.Enable = 1.
+#        Default:     1 (Enabled)
+#
+AoELoot.LooterPet.Pathfinding.Enable = 1
+
+#
+#    AoELoot.LooterPet.Pathfinding.AllowIncomplete
+#        Description: Allow partial path solutions (PATHFIND_INCOMPLETE) for pulse targeting
+#        Default:     1 (Enabled)
+#
+AoELoot.LooterPet.Pathfinding.AllowIncomplete = 1
+
+#
+#    AoELoot.LooterPet.Pathfinding.RejectShortcut
+#        Description: Reject shortcut path types (PATHFIND_SHORTCUT) for stricter reachability
+#        Default:     0 (Disabled)
+#
+AoELoot.LooterPet.Pathfinding.RejectShortcut = 0
+
+#
+#    AoELoot.LooterPet.Pathfinding.MaxPathLength
+#        Description: Maximum allowed computed path length (yards) from companion anchor to corpse
+#                     0 disables this cap.
+#        Range:       0.0 - 500.0
+#        Default:     80.0
+#
+AoELoot.LooterPet.Pathfinding.MaxPathLength = 80.0
+
+#
+#    AoELoot.LooterPet.Pathfinding.MaxChecks
+#        Description: Maximum nearest corpse candidates to evaluate per pulse
+#        Range:       1 - 50
+#        Default:     12
+#
+AoELoot.LooterPet.Pathfinding.MaxChecks = 12
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Quality Filtering
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.QualityFilter.Enable
+#        Description: Enable quality-based loot filtering (server default)
+#        Default:     0 (Disabled - players can enable per-character)
+#
+AoELoot.Extensions.QualityFilter.Enable = 1
+
+#
+#    AoELoot.Extensions.QualityFilter.MinQuality
+#        Description: Default minimum item quality to loot (player overridable)
+#                     0=Poor, 1=Common, 2=Uncommon, 3=Rare, 4=Epic, 5=Legendary, 6=Artifact
+#        Default:     0 (Poor)
+#
+AoELoot.Extensions.QualityFilter.MinQuality = 4
+
+#
+#    AoELoot.Extensions.QualityFilter.MaxQuality
+#        Description: Server-enforced maximum quality (cannot be overridden)
+#        Default:     6 (Artifact)
+#
+AoELoot.Extensions.QualityFilter.MaxQuality = 6
+
+#
+#    AoELoot.Extensions.QualityFilter.AutoVendorPoor
+#        Description: Default auto-vendor poor quality items (player overridable)
+#        Default:     0 (Disabled)
+#
+AoELoot.Extensions.QualityFilter.AutoVendorPoor = 0
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Profession Integration
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.Profession.AutoSkin
+#        Description: Server default for auto-skinning corpses (player overridable)
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.Profession.AutoSkin = 1
+
+#
+#    AoELoot.Extensions.Profession.AutoMine
+#        Description: Server default for auto-mining ore deposits
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.Profession.AutoMine = 1
+
+#
+#    AoELoot.Extensions.Profession.AutoHerb
+#        Description: Server default for auto-gathering herb nodes
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.Profession.AutoHerb = 1
+
+#
+#    AoELoot.Extensions.Profession.Range
+#        Description: Range (yards) for auto-profession gathering
+#        Range:       1.0 - 100.0
+#        Default:     10.0
+#
+AoELoot.Extensions.Profession.Range = 10.0
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Smart Loot
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.SmartLoot.PreferCurrentSpec
+#        Description: Prioritize items usable by current talent spec
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.SmartLoot.PreferCurrentSpec = 1
+
+#
+#    AoELoot.Extensions.SmartLoot.PreferEquippable
+#        Description: Prioritize equippable items over non-equippable
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.SmartLoot.PreferEquippable = 1
+
+#
+#    AoELoot.Extensions.SmartLoot.PrioritizeUpgrades
+#        Description: Highlight items that are upgrades for the player
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.SmartLoot.PrioritizeUpgrades = 1
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Mythic+ Integration
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.MythicPlus.Bonus
+#        Description: Apply bonus range/features in Mythic+ dungeons
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.MythicPlus.Bonus = 1
+
+#
+#    AoELoot.Extensions.MythicPlus.RangeMultiplier
+#        Description: AoE loot range multiplier in Mythic+ dungeons
+#        Range:       1.0 - 5.0
+#        Default:     1.5
+#
+AoELoot.Extensions.MythicPlus.RangeMultiplier = 1.5
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Raid Mode
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.Raid.Enable
+#        Description: Enable enhanced AoE looting in raids
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.Raid.Enable = 1
+
+#
+#    AoELoot.Extensions.Raid.MaxCorpses
+#        Description: Maximum corpses to loot in raid environments
+#        Default:     25
+#
+AoELoot.Extensions.Raid.MaxCorpses = 25
+
+# -----------------------------------------------------------------------------
+# AoE Loot Extensions: Statistics
+# -----------------------------------------------------------------------------
+
+#
+#    AoELoot.Extensions.TrackDetailedStats
+#        Description: Track detailed loot statistics per player
+#        Default:     1 (Enabled)
+#
+AoELoot.Extensions.TrackDetailedStats = 1
